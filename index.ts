@@ -4,6 +4,7 @@
 
 import * as Gulp from 'gulp';
 import * as Orchestrator from 'orchestrator';
+import * as gutil from 'gulp-util';
 
 export type vGulp = Gulp.Gulp | Orchestrator;
 
@@ -106,6 +107,30 @@ export function use(gulp: IGulpMixed): IGulpMixed
 			return cb.call(this, task, ...argv);
 		}
 	};
+
+	/*
+	gulp.resetAllTasks = function ()
+	{
+		return resetAllTasks(this);
+	};
+	*/
+
+	return gulp;
+}
+
+export function resetAllTasks(gulp: IGulpMixed)
+{
+	if (!gulp.options || typeof gulp.options.disableResetTask == 'undefined')
+	{
+		//throw new Error(`This gulp not use with gulp-run-seq-unique. please run runSequenceUnique.use(gulp) first.`);
+		use(gulp);
+	}
+
+	let disableResetTask = gulp.options.disableResetTask;
+
+	gulp._resetAllTasks();
+
+	gulp.options.disableResetTask = disableResetTask;
 
 	return gulp;
 }
