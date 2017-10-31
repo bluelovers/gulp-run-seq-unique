@@ -1,6 +1,10 @@
 # gulp-run-seq-unique
 
-this hack make when we run a task like `run-sequence`, the dep task will not run > 1 time
+> this hack make when we run a task like `run-sequence`, the dep task will not run > 1 time
+
+## install
+
+`npm install gulp-run-seq-unique`
 
 ## gulp.options.disableResetTask
 
