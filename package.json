@@ -26,5 +26,13 @@
     "dependencies",
     "orchestrator"
   ],
-  "dependencies": {}
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/gulp-run-seq-unique.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bluelovers/gulp-run-seq-unique/issues"
+  },
+  "homepage": "https://github.com/bluelovers/gulp-run-seq-unique#readme"
 }
