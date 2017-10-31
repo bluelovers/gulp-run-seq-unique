@@ -31,6 +31,7 @@ addGulpTasks({
 			'task1',
 			'task2',
 		],
+
 	},
 
 	'default:disable': {
