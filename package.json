@@ -1,6 +1,6 @@
 {
   "name": "gulp-run-seq-unique",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "this hack make when we run a task like `run-sequence`, the dep task will not run > 1 time",
   "main": "index.js",
   "scripts": {
