@@ -16,7 +16,7 @@ when u wanna disable this hack like old `run-sequence` do, u can set value as `f
 
 ### replace run-sequence
 
-```
+```js
 import * as gulp from 'gulp';
 import * as runSequence from 'run-sequence';
 
@@ -36,7 +36,7 @@ runSequence('task-name', callback);
 
 to
 
-```
+```js
 import * as gulp from 'gulp';
 import runSequence from 'gulp-run-seq-unique/run-sequence';
 
@@ -56,7 +56,7 @@ runSequence('task-name', callback);
 
 ### gulpfile.ts
 
-```
+```js
 import * as gulp from 'gulp';
 import runSequenceUnique from '.';
 import addTasks from 'gulp-add-tasks2';
