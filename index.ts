@@ -54,7 +54,7 @@ export interface IOptions
 	[index: string]: any;
 }
 
-export function init(gulp?: IGulpMixed): IGulpMixed
+export function init(gulp?: IGulpMixed, options?: IOptions): IGulpMixed
 {
 	if (!gulp)
 	{
@@ -62,10 +62,10 @@ export function init(gulp?: IGulpMixed): IGulpMixed
 		gulp = require("gulp");
 	}
 
-	return use(gulp);
+	return use(gulp, options);
 }
 
-export function use(gulp: IGulpMixed): IGulpMixed
+export function use(gulp: IGulpMixed, options?: IOptions): IGulpMixed
 {
 	let cb: I_resetTask;
 
@@ -85,9 +85,9 @@ export function use(gulp: IGulpMixed): IGulpMixed
 		cb = Orchestrator.prototype._resetTask;
 	}
 
-	gulp.options = gulp.options || {
+	gulp.options = Object.assign(gulp.options || {
 		disableResetTask: true,
-	} as IOptions;
+	}, options) as IOptions;
 
 	gulp._resetTask = function (task: ITask, ...argv)
 	{
