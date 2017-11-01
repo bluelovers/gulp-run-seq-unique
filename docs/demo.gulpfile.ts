@@ -3,7 +3,7 @@
  */
 
 import * as gulp from 'gulp';
-import runSequenceUnique from '.';
+import runSequenceUnique from '..';
 import addTasks from 'gulp-add-tasks2';
 import * as gutil from 'gulp-util';
 
