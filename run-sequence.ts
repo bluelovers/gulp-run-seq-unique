@@ -2,24 +2,28 @@
  * Created by user on 2017/11/1/001.
  */
 
-import * as runSequence from 'run-sequence';
+import * as runSequenceCore from 'run-sequence';
 import * as runSequenceUnique from '.';
 
-export default use();
+export const runSequence = use();
+runSequence.use = use;
+runSequence.run = run;
+
+export default runSequence;
 
 export function run(gulp = undefined, ...tasks)
 {
 	return use(gulp)(...tasks);
 }
 
-export function use(gulp = undefined)
+export function use(gulp = undefined, options?: runSequenceUnique.IOptions)
 {
 	if(gulp === undefined)
 	{
 		gulp = require('gulp');
 	}
 
-	return runSequence.use(runSequenceUnique.use(gulp));
+	return runSequenceCore.use(runSequenceUnique.use(gulp, options));
 }
 
 {
@@ -27,11 +31,22 @@ export function use(gulp = undefined)
 	Object.defineProperty(exports, "options", {
 		get: function ()
 		{
-			return runSequence.options;
+			return runSequenceCore.options;
 		},
 		set: function (newValue)
 		{
-			runSequence.options = newValue;
+			runSequenceCore.options = newValue;
+		},
+	});
+
+	Object.defineProperty(runSequence, "options", {
+		get: function ()
+		{
+			return runSequenceCore.options;
+		},
+		set: function (newValue)
+		{
+			runSequenceCore.options = newValue;
 		},
 	});
 }
